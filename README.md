@@ -1,10 +1,18 @@
 # War Card Game 
 
+```
+ ___   ___   ___   ___   ___   ___   ___   ___   ___   ___   ___   ___   ___
+|1  | |2  | |3  | |4  | |5  | |6  | |7  | |8  | |9  | |10 | |J  | |Q  | |K  |
+| ♥ | | ♦ | | ♠ | | ♣ | | ♥ | | ♦ | | ♠ | | ♣ | | ♥ | | ♦ | | ♠ | | ♣ | | ♥ |
+|__1| |__2| |__3| |__4| |__5| |__6| |__7| |__8| |__9| |_10| |__J| |__Q| |__K|
+```
+
 By Joel Chamberlain 2025
 
 A Personal Prograaming Project
 
 Inspired by: https://www.youtube.com/watch?v=zX4u3SudI-0&t=715s
+Card art inspired by: https://inventwithpython.com/bigbookpython/project4.html
 
 ## Explaination
 
