@@ -13,6 +13,10 @@ public class Deck {
     private final List<Card> cards;
     private final HashMap<String, Integer> values = new HashMap<>();
 
+    /**
+     * Basic constructor for the Deck of cards
+     * Adds only the ranks and suits, translates the values of the ranks
+     */
     public Deck(){
         this.cards = new ArrayList<>();
 

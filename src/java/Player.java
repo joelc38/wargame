@@ -21,7 +21,7 @@ public class Player {
         return name;
     }
 
-    public Card getCard(){
+    public Card getTopCard(){
         return cards.poll();
     }
 
