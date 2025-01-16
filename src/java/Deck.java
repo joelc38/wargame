@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /*
@@ -10,6 +11,7 @@ Creating and Shuffling the deck of cards for the players to begin playing the ga
  */
 public class Deck {
     private final List<Card> cards;
+    private final HashMap<String, Integer> values = new HashMap<>();
 
     public Deck(){
         this.cards = new ArrayList<>();
@@ -17,11 +19,40 @@ public class Deck {
         String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs"};
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 
+        for(String rank : ranks){
+            values.put(rank, cardValue(rank));
+        }
+
         for (String suit : suits) {
             for (String rank : ranks) {
-                cards.add(new Card(rank, suit));
+                cards.add(new Card(rank, values.get(rank), suit));
             }
         }
+    }
+
+    public int cardValue(String value){
+        int res = 0;
+        try{
+            res = Integer.parseInt(value);
+        } catch (NumberFormatException e){
+            switch (value) {
+                case "J":
+                    res = 11;
+                    break;
+                case "Q":
+                    res = 12;
+                    break;
+                case "K":
+                    res = 13;
+                    break;
+                case "A":
+                    res = 14;
+                    break;
+                default:
+                    break;
+            }
+        }
+        return res;
     }
 
     public void shuffle(){
