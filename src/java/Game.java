@@ -1,4 +1,8 @@
 public class Game {
+    /**
+     * Runner code for the WarGame, mainly setup
+     * @param args
+     */
     public static void main(String[] args){
         Deck d = new Deck();
         d.shuffle();

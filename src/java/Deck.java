@@ -7,7 +7,8 @@ import java.util.List;
 Deck
 
 A class for holding all of the logic behind the deck of cards.
-Creating and Shuffling the deck of cards for the players to begin playing the game
+Creating and shuffling the deck of cards for the players to begin playing the game
+Also holds a currentIndex in the list of cards to make sure we know how many cards we have dealt.
  */
 public class Deck {
     private final List<Card> cards;
@@ -37,6 +38,12 @@ public class Deck {
         }
     }
 
+    /**
+     * Since we have values that are not numeric within the deck of cards, we need a way to translate them 
+     * to actual int values we can compare in the game. This function will do that for us.
+     * @param value
+     * @return the int value of the string
+     */
     public int cardValue(String value){
         int res = 0;
         try{
@@ -66,6 +73,11 @@ public class Deck {
         Collections.shuffle(this.cards);
     }
 
+    /**
+     * A function that will deal half of the deck to the Player. 
+     * If the deck is empty, then we return a IllegalStateException.
+     * @return The list of Cards
+     */
     public List<Card> dealHalf(){
         int deckSize = cards.size();
         int halfSize = deckSize / 2;

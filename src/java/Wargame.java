@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 
+/**
+ * Wargame
+ * 
+ * A class that holds the logic for the game of war and facilitates the gameplay for the players.
+ * A Game of War has two players that play for cards, comparing the values of the top cards in their decks, and if
+ * there is a tie, going to war!
+ */
 public class Wargame {
     private final Player p1;
     private final Player p2;
@@ -13,6 +20,13 @@ public class Wargame {
         return p1.hasEmptyHand() || p2.hasEmptyHand();
     }
 
+    /*
+     * The main function in the Class which holds most of the basic logic.
+     * While both players still have cards to lose, play a round of war.
+     * Flip the top card of each players' deck and compare their values to see whose is highest -> that player wins the round!
+     * If the values are the same, go to War!
+     * Take the top three cards off the deck of each player and compare the fourth. Compare similarly to the regular round. Go to war until there is a winner. 
+     */
     public void playGame() {
         System.out.println(p1.getName() + " and " + p2.getName() + " are playing War!");
 
@@ -36,7 +50,7 @@ public class Wargame {
                 System.out.println(p2.getName() + " wins this round!");
             } else {
                 System.out.println("Tie! Going to war...");
-                Player winner = gotoWar(pile); // Pass the pile to gotoWar
+                Player winner = gotoWar(pile);
                 if (winner != null) {
                     winner.addCards(pile);
                 }
@@ -55,6 +69,14 @@ public class Wargame {
         }
     }
 
+    /**
+     * gotoWar
+     * 
+     * Play continuous rounds until one player wins, burn 3 cards and play the fourth. Add to the pile defined in playGame.
+     * 
+     * @param pile
+     * @return the player who won the war.
+     */
     public Player gotoWar(ArrayList<Card> pile) {
         while (true) {
             // Check if players can go to war

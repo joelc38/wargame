@@ -38,5 +38,4 @@ public class Player {
     public boolean hasEmptyHand(){
         return cards.isEmpty();
     }
-
 }
