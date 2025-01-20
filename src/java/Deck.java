@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ Creating and Shuffling the deck of cards for the players to begin playing the ga
 public class Deck {
     private final List<Card> cards;
     private final HashMap<String, Integer> values = new HashMap<>();
+    private int currentIndex;
 
     /**
      * Basic constructor for the Deck of cards
@@ -19,6 +21,8 @@ public class Deck {
      */
     public Deck(){
         this.cards = new ArrayList<>();
+        this.currentIndex = 0;
+
 
         String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs"};
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
@@ -64,7 +68,21 @@ public class Deck {
     }
 
     public List<Card> dealHalf(){
-        return new ArrayList<>(cards.subList(0, cards.size() / 2));
+        int deckSize = cards.size();
+        int halfSize = deckSize / 2;
+
+        // Ensure we're not overstepping the bounds of the deck
+        if (currentIndex + halfSize > deckSize) {
+            throw new IllegalStateException("No more cards to deal!");
+        }
+
+        // Get the sublist for the half
+        List<Card> half = new ArrayList<>(cards.subList(currentIndex, currentIndex + halfSize));
+        
+        // Advance the index
+        currentIndex += halfSize;
+
+        return half;
     }
 
     public List<Card> getCards(){

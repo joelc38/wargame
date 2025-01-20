@@ -25,6 +25,16 @@ public class Player {
         return cards.poll();
     }
 
+    public void addCards(List<Card> newCards){
+        for(Card c : newCards){
+            this.cards.add(c);
+        }
+    }
+
+    public int getHandSize(){
+        return cards.size();
+    }
+
     public boolean hasEmptyHand(){
         return cards.isEmpty();
     }
