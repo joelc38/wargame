@@ -1,3 +1,6 @@
+
+import java.util.HashMap;
+
 /*
 Card
 
@@ -47,6 +50,19 @@ public class Card {
 
     @Override
     public String toString(){
+        HashMap<String, String> suits = new HashMap<>();
+        suits.put("Hearts", "♥");
+        suits.put("Diamonds", "♦");
+        suits.put("Spades", "♠");
+        suits.put("Clubs", "♣");
+
+
         return this.rank + " of " + this.suit;
+
+        //  ___  
+        // |1  | 
+        // | ♥ |
+        // |__1|
+        
     }
 }
