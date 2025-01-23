@@ -1,4 +1,4 @@
-
+package main;
 import java.util.HashMap;
 
 /*
@@ -57,7 +57,9 @@ public class Card {
         suits.put("Clubs", "♣");
 
 
-        return this.rank + " of " + this.suit;
+
+
+        return this.rank + " of " + suits.get(this.suit);
 
         //  ___  
         // |1  | 
