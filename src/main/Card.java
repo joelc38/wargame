@@ -48,6 +48,13 @@ public class Card {
         return Integer.compare(this.value, other.value);
     }
 
+    /**
+     * Print the representation of the card in the following style:
+     *   ___  
+        |1  | 
+        | ♥ |
+        |__1|
+     */
     @Override
     public String toString(){
         HashMap<String, String> suits = new HashMap<>();
@@ -56,15 +63,19 @@ public class Card {
         suits.put("Spades", "♠");
         suits.put("Clubs", "♣");
 
-
-
-
-        return this.rank + " of " + suits.get(this.suit);
-
-        //  ___  
-        // |1  | 
-        // | ♥ |
-        // |__1|
-        
+        String result;
+        if(this.value == 10){
+            result = "\n  ___ \n" +
+                    " |" + this.rank +" | \n" + 
+                    " | " + suits.get(this.suit) + " | \n" + 
+                    " |_" + this.rank + "| \n";
+        }else{
+            result = "\n  ___ \n" +
+                    " |" + this.rank +"  | \n" + 
+                    " | " + suits.get(this.suit) + " | \n" + 
+                    " |__" + this.rank + "| \n";
+        }
+            
+        return result; 
     }
 }
