@@ -28,7 +28,22 @@ public class CardTest {
     @Test
     public void testToString(){
         Card c = new Card("1", 1, "Spades");
+        String result = "\n  ___ \n" +
+                        " |1  | \n" + 
+                        " | ♠ | \n" + 
+                        " |__1| \n";
 
-        assertEquals("Card", c.toString());
+        assertEquals(result, c.toString());
+    }
+
+    @Test
+    public void testTenToString(){
+        Card c = new Card("10", 10, "Spades");
+        String result = "\n  ___ \n" +
+                        " |10 | \n" + 
+                        " | ♠ | \n" + 
+                        " |_10| \n";
+
+        assertEquals(result, c.toString());
     }
 }
