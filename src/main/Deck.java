@@ -74,6 +74,10 @@ public class Deck {
         Collections.shuffle(this.cards);
     }
 
+    public int getCurrentIndex(){
+        return this.currentIndex;
+    }
+
     /**
      * A function that will deal half of the deck to the Player. 
      * If the deck is empty, then we return a IllegalStateException.

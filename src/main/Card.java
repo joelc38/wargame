@@ -75,7 +75,6 @@ public class Card {
                     " | " + suits.get(this.suit) + " | \n" + 
                     " |__" + this.rank + "| \n";
         }
-            
         return result; 
     }
 }

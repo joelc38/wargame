@@ -1,5 +1,6 @@
 package test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
@@ -23,6 +24,22 @@ public class CardTest {
     public void testGetValue(){
         Card c = new Card("1", 1, "Spades");
         assertEquals(1, c.getValue());
+    }
+
+    @Test
+    public void testCompareToGoodWeather(){
+        Card c1 = new Card("1", 1, "Spades");
+        Card c2 = new Card("1", 1, "Spades");
+
+        assertEquals(0, c1.compareTo(c2));
+    }
+
+    @Test
+    public void testCompareToBadWeather(){
+        Card c1 = new Card("1", 1, "Spades");
+        Card c2 = new Card("2", 2, "Spades");
+
+        assertNotEquals(0, c1.compareTo(c2));
     }
 
     @Test
